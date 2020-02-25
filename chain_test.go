@@ -97,8 +97,9 @@ func TestConcurrency(t *testing.T) {
 					panic(err)
 				}
 				resp.Body.Close()
-				fmt.Printf("%s", string(buf))
-				// time.Sleep(10 * time.Millisecond)
+				if testex.Verbose {
+					fmt.Printf("%s", string(buf))
+				}
 			}
 		}(i)
 	}
